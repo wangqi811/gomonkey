@@ -27,6 +27,10 @@ func ApplyMethod(target reflect.Type, methodName string, double interface{}) *Pa
 	return create().ApplyMethod(target, methodName, double)
 }
 
+//单例模式成员方法打桩
+func ApplySingletonMethod(target reflect.Type, methodName string, double interface{}) *Patches {
+	return create().ApplySingletonMethod(target, methodName, double)
+}
 func ApplyGlobalVar(target, double interface{}) *Patches {
 	return create().ApplyGlobalVar(target, double)
 }
@@ -68,6 +72,30 @@ func (this *Patches) ApplyMethod(target reflect.Type, methodName string, double 
 	}
 	d := reflect.ValueOf(double)
 	return this.ApplyCore(m.Func, d)
+}
+
+func (this *Patches) ApplySingletonMethod(target reflect.Type, methodName string, double interface{}) *Patches {
+	m, ok := target.MethodByName(methodName)
+	if !ok {
+		panic("retrieve method by name failed")
+	}
+	d := reflect.ValueOf(double)
+	return this.ApplySingletonCore(m.Func, d)
+}
+
+func (this *Patches) ApplySingletonCore(target, double reflect.Value) *Patches {
+
+	//因为单例模式类型无法显式取到，所以此处不去校验类型
+	//this.check(target, double)
+	if _, ok := this.originals[target]; ok {
+		panic("patch has been existed")
+	}
+	//因为单例模式类型无法显式取到，所以此处类型取target
+	//this.valueHolders[double] = double
+	this.valueHolders[target] = double
+	original := replace(*(*uintptr)(getPointer(target)), uintptr(getPointer(double)))
+	this.originals[target] = original
+	return this
 }
 
 func (this *Patches) ApplyGlobalVar(target, double interface{}) *Patches {

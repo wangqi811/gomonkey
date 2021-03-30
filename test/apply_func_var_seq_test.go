@@ -3,9 +3,9 @@ package test
 import (
 	"testing"
 
-	. "github.com/agiledragon/gomonkey/v2"
-	"github.com/agiledragon/gomonkey/v2/test/fake"
 	. "github.com/smartystreets/goconvey/convey"
+	. "gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2"
+	"gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2/test/fake"
 )
 
 func TestApplyFuncVarSeq(t *testing.T) {

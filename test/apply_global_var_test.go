@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	. "github.com/agiledragon/gomonkey/v2"
 	. "github.com/smartystreets/goconvey/convey"
+	. "gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2"
 )
 
 var num = 10

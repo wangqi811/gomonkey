@@ -3,9 +3,9 @@ package dsl_test
 import (
 	"testing"
 
-	. "github.com/agiledragon/gomonkey/v2"
-	. "github.com/agiledragon/gomonkey/v2/dsl"
 	. "github.com/smartystreets/goconvey/convey"
+	. "gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2"
+	. "gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2/dsl"
 )
 
 func TestPbBuilderFunc(t *testing.T) {

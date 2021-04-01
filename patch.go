@@ -28,6 +28,7 @@ func ApplyMethod(target reflect.Type, methodName string, double interface{}) *Pa
 }
 
 //单例模式成员方法打桩
+// 与ApplyMethod 使用方法大致相同，唯一区别在于 double interface{} 的第一个参数 receiver 如果是指针就写 *interface{} 非指针写 interface{}
 func ApplySingletonMethod(target reflect.Type, methodName string, double interface{}) *Patches {
 	return create().ApplySingletonMethod(target, methodName, double)
 }

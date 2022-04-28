@@ -1,4 +1,4 @@
-module gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2
+module github.com/wangqi811/gomonkey/v2
 
 go 1.14
 

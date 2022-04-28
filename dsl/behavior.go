@@ -1,6 +1,6 @@
 package dsl
 
-import . "gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2"
+import . "github.com/wangqi811/gomonkey/v2"
 
 type Behavior interface {
 	Apply() []Params

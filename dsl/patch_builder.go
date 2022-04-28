@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	. "gitlab.prod.dtstack.cn/dt-insight-ops/gomonkey/v2"
+	. "github.com/wangqi811/gomonkey/v2"
 )
 
 type FuncPara struct {
